@@ -16,6 +16,7 @@ class LoginActivity : AppCompatActivity() {
         val usernameEditText = findViewById<EditText>(R.id.username)
         val passwordEditText = findViewById<EditText>(R.id.password)
         val loginButton = findViewById<Button>(R.id.button_login)
+        val regiterButton = findViewById<Button>(R.id.button_register)
 
         loginButton.setOnClickListener {
             val username = usernameEditText.text.toString()
@@ -29,6 +30,14 @@ class LoginActivity : AppCompatActivity() {
             } else {
                 Toast.makeText(this, "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show()
             }
+        }
+
+        regiterButton.setOnClickListener {
+
+            val intent = Intent(this, RegisterActivity::class.java) // Usar la importación
+            startActivity(intent)
+            finish()
+
         }
     }
 }

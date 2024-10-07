@@ -1,7 +1,9 @@
 package com.example.movb02_grupo2_pl
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -49,5 +51,17 @@ class MainActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.action_perfil -> {
+                // Aquí debes iniciar la actividad o fragmento de perfil
+                startActivity(Intent(this, PerfilActivity::class.java))
+                return true
+            }
+            // Otros casos para otros elementos del menú si los tienes
+            else -> return super.onOptionsItemSelected(item)
+        }
     }
 }
